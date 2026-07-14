@@ -17,32 +17,49 @@ Licensed under the [GNU Affero General Public License v3.0 or later](LICENSE).
 
 ## Install with the Legendary stack
 
-Place this directory inside the directory containing the Legendary `docker-compose.yml`, then start Compose with both files:
+Add the updater service to the same Compose project and make Minecraft depend on its successful completion. The published image supports `linux/amd64` and `linux/arm64`.
 
 ```bash
-docker compose \
-  -f docker-compose.yml \
-  -f minecraft-plugin-updater/compose.updater.yaml \
-  up -d --build
+docker compose up -d --pull always
 ```
 
-The `plugin-updater` init service finishes before `minecraftbe` starts. Restarting the stack checks for updates:
+The `plugin-updater` init service finishes before `minecraft` starts. A Dokploy redeployment recreates the one-shot service and checks for releases before starting Minecraft.
 
 ```bash
-docker compose \
-  -f docker-compose.yml \
-  -f minecraft-plugin-updater/compose.updater.yaml \
-  restart
+docker compose up -d --pull always --force-recreate
 ```
 
-Compose `restart` does not rerun completed dependency services. To guarantee an update check, recreate the services:
+Compose `restart` alone does not rerun completed dependency services. Recreate or redeploy the project to guarantee an update check.
 
 ```bash
-docker compose \
-  -f docker-compose.yml \
-  -f minecraft-plugin-updater/compose.updater.yaml \
-  up -d --build --force-recreate
+docker compose up -d --pull always --force-recreate
 ```
+
+### Dokploy service fragment
+
+```yaml
+services:
+  plugin-updater:
+    image: ghcr.io/carmelosantana/minecraft-plugin-updater:latest
+    pull_policy: always
+    restart: "no"
+    volumes:
+      - minecraft:/minecraft
+
+  minecraft:
+    image: 05jchambers/legendary-minecraft-geyser-floodgate:latest
+    depends_on:
+      plugin-updater:
+        condition: service_completed_successfully
+    volumes:
+      - minecraft:/minecraft
+
+volumes:
+  minecraft:
+    driver: local
+```
+
+No GitHub token is needed for the ten public plugin repositories. If a token is configured, use a read-only fine-grained token rather than a general account token.
 
 ## Configuration
 

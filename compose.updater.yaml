@@ -1,7 +1,7 @@
 services:
   plugin-updater:
-    build:
-      context: ./minecraft-plugin-updater
+    image: ghcr.io/carmelosantana/minecraft-plugin-updater:latest
+    pull_policy: always
     restart: "no"
     volumes:
       - minecraft:/minecraft
@@ -9,7 +9,7 @@ services:
       # Optional for private repositories or higher GitHub API limits.
       GITHUB_TOKEN: "${PLUGIN_UPDATER_GITHUB_TOKEN:-}"
 
-  minecraftbe:
+  minecraft:
     depends_on:
       plugin-updater:
         condition: service_completed_successfully
