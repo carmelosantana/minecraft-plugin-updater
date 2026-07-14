@@ -25,6 +25,8 @@ docker compose up -d --pull always
 
 The `plugin-updater` init service finishes before `minecraft` starts. A Dokploy redeployment recreates the one-shot service and checks for releases before starting Minecraft.
 
+Use `latest` to receive updater improvements on redeploy, or pin a published version such as `1.0.0` for a fixed updater image. Plugin release checks work the same either way.
+
 ```bash
 docker compose up -d --pull always --force-recreate
 ```
