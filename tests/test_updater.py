@@ -101,5 +101,38 @@ class UpdaterTests(unittest.TestCase):
             updater.expected_checksum(f"{'0' * 64}  other.jar\n".encode(), "example.jar")
 
 
+class ResolveTokenTests(unittest.TestCase):
+    """The specific name is what README.md documents and what a direct host run
+    uses; the generic name is what compose.updater.yaml sets inside the container.
+    Both must work, and a missing token must stay a non-error."""
+
+    def env(self, **values):
+        return patch.dict(updater.os.environ, values, clear=True)
+
+    def test_prefers_the_specific_name(self):
+        with self.env(PLUGIN_UPDATER_GITHUB_TOKEN="specific", GITHUB_TOKEN="generic"):
+            self.assertEqual("specific", updater.resolve_token())
+
+    def test_accepts_the_specific_name_alone(self):
+        with self.env(PLUGIN_UPDATER_GITHUB_TOKEN="specific"):
+            self.assertEqual("specific", updater.resolve_token())
+
+    def test_accepts_the_generic_name_alone(self):
+        with self.env(GITHUB_TOKEN="generic"):
+            self.assertEqual("generic", updater.resolve_token())
+
+    def test_missing_token_is_not_an_error(self):
+        with self.env():
+            self.assertIsNone(updater.resolve_token())
+
+    def test_empty_value_is_treated_as_absent(self):
+        with self.env(PLUGIN_UPDATER_GITHUB_TOKEN="", GITHUB_TOKEN=""):
+            self.assertIsNone(updater.resolve_token())
+
+    def test_empty_specific_falls_back_to_generic(self):
+        with self.env(PLUGIN_UPDATER_GITHUB_TOKEN="", GITHUB_TOKEN="generic"):
+            self.assertEqual("generic", updater.resolve_token())
+
+
 if __name__ == "__main__":
     unittest.main()

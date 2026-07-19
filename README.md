@@ -81,7 +81,9 @@ Edit `plugins.json` to disable or pin a plugin:
 
 Remove `pin` to follow the latest stable release. Set `enabled` to `false` to leave an installed plugin untouched.
 
-Public repositories work without credentials. Set `PLUGIN_UPDATER_GITHUB_TOKEN` in the host environment for private repositories or higher API limits. Use a read-only fine-grained token with access only to repository contents.
+Public repositories work without credentials. Set `PLUGIN_UPDATER_GITHUB_TOKEN` for private repositories or higher API limits. Use a read-only fine-grained token with access only to repository contents.
+
+That name works whether you run `updater.py` directly or run the container: `compose.updater.yaml` reads `PLUGIN_UPDATER_GITHUB_TOKEN` from the host environment and passes it into the container as `GITHUB_TOKEN`. The updater accepts either name and prefers `PLUGIN_UPDATER_GITHUB_TOKEN`, so a direct run and a composed run authenticate identically. A missing token is never an error.
 
 By default, update failures are warnings so an unavailable GitHub endpoint cannot prevent Minecraft from starting. Pass `--strict` only if server startup must stop when any plugin cannot be checked.
 

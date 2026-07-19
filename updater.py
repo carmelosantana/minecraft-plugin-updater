@@ -164,6 +164,22 @@ def install_one(
     return f"{name}: installed {tag}{suffix}"
 
 
+def resolve_token() -> str | None:
+    """Read the GitHub token, preferring the specific name over the generic one.
+
+    `PLUGIN_UPDATER_GITHUB_TOKEN` is what README.md tells operators to set and what
+    runs directly on a host. `GITHUB_TOKEN` is what compose.updater.yaml maps that
+    value to inside the container. Both are accepted so a direct invocation and a
+    composed one behave identically. A missing token is not an error: public
+    repositories work unauthenticated.
+    """
+    return (
+        os.environ.get("PLUGIN_UPDATER_GITHUB_TOKEN")
+        or os.environ.get("GITHUB_TOKEN")
+        or None
+    )
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--manifest", type=Path, default=Path("/config/plugins.json"))
@@ -182,7 +198,7 @@ def main() -> int:
         log("ERROR: manifest must contain a plugins array")
         return 2
     state = load_json(args.state_file, {})
-    token = os.environ.get("GITHUB_TOKEN") or None
+    token = resolve_token()
     keep_backups = int(manifest.get("keep_backups", 3))
     failures = 0
     for plugin in manifest["plugins"]:
