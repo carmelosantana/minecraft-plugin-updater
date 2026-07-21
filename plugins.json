@@ -9,6 +9,7 @@
     {"name": "Gluten Free Bread", "repo": "carmelosantana/minecraft-gluten-free-bread", "destination": "gluten-free-bread.jar", "asset_regex": "^gluten-free-bread-[0-9].*\\.jar$", "legacy_globs": ["gluten-free-bread-[0-9]*.jar"]},
     {"name": "Ollama", "repo": "carmelosantana/minecraft-ollama", "destination": "ollama.jar", "asset_regex": "^ollama-[0-9].*\\.jar$", "legacy_globs": ["ollama-[0-9]*.jar"]},
     {"name": "Starter Pack", "repo": "carmelosantana/minecraft-starter-pack", "destination": "starter-pack.jar", "asset_regex": "^starter-pack-[0-9].*\\.jar$", "legacy_globs": ["starter-pack-[0-9]*.jar"]},
+    {"name": "Timber Blast", "repo": "carmelosantana/minecraft-timber-blast", "destination": "timber-blast.jar", "asset_regex": "^timber-blast-[0-9].*\\.jar$", "legacy_globs": ["timber-blast-[0-9]*.jar"]},
     {"name": "Umami", "repo": "carmelosantana/minecraft-umami", "destination": "umami.jar", "asset_regex": "^umami-[0-9].*\\.jar$", "legacy_globs": ["umami-[0-9]*.jar"]},
     {"name": "Wild Weather Update", "repo": "carmelosantana/minecraft-wild-weather-update", "destination": "wild-weather-update.jar", "asset_regex": "^wild-weather-update-[0-9].*\\.jar$", "legacy_globs": ["wild-weather-update-[0-9]*.jar"]},
     {"name": "WorldCRUD", "repo": "carmelosantana/minecraft-worldcrud", "destination": "worldcrud.jar", "asset_regex": "^worldcrud-[0-9].*\\.jar$", "legacy_globs": ["worldcrud-[0-9]*.jar"]}
