@@ -7,6 +7,7 @@
     {"name": "Death Depot", "repo": "carmelosantana/minecraft-death-depot", "destination": "death-depot.jar", "asset_regex": "^death-depot-[0-9].*\\.jar$", "legacy_globs": ["death-depot-[0-9]*.jar"]},
     {"name": "Electric Furnace", "repo": "carmelosantana/minecraft-electric-furnace", "destination": "electric-furnace.jar", "asset_regex": "^electric-furnace-[0-9].*\\.jar$", "legacy_globs": ["electric-furnace-[0-9]*.jar"]},
     {"name": "Gluten Free Bread", "repo": "carmelosantana/minecraft-gluten-free-bread", "destination": "gluten-free-bread.jar", "asset_regex": "^gluten-free-bread-[0-9].*\\.jar$", "legacy_globs": ["gluten-free-bread-[0-9]*.jar"]},
+    {"name": "Magic Carpet", "repo": "carmelosantana/minecraft-magic-carpet", "destination": "magic-carpet.jar", "asset_regex": "^magic-carpet-[0-9].*\\.jar$", "legacy_globs": ["magic-carpet-[0-9]*.jar"]},
     {"name": "Ollama", "repo": "carmelosantana/minecraft-ollama", "destination": "ollama.jar", "asset_regex": "^ollama-[0-9].*\\.jar$", "legacy_globs": ["ollama-[0-9]*.jar"]},
     {"name": "Starter Pack", "repo": "carmelosantana/minecraft-starter-pack", "destination": "starter-pack.jar", "asset_regex": "^starter-pack-[0-9].*\\.jar$", "legacy_globs": ["starter-pack-[0-9]*.jar"]},
     {"name": "Timber Blast", "repo": "carmelosantana/minecraft-timber-blast", "destination": "timber-blast.jar", "asset_regex": "^timber-blast-[0-9].*\\.jar$", "legacy_globs": ["timber-blast-[0-9]*.jar"]},
