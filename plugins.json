@@ -10,6 +10,7 @@
     {"name": "Magic Carpet", "repo": "carmelosantana/minecraft-magic-carpet", "destination": "magic-carpet.jar", "asset_regex": "^magic-carpet-[0-9].*\\.jar$", "legacy_globs": ["magic-carpet-[0-9]*.jar"]},
     {"name": "Ollama", "repo": "carmelosantana/minecraft-ollama", "destination": "ollama.jar", "asset_regex": "^ollama-[0-9].*\\.jar$", "legacy_globs": ["ollama-[0-9]*.jar"]},
     {"name": "Starter Pack", "repo": "carmelosantana/minecraft-starter-pack", "destination": "starter-pack.jar", "asset_regex": "^starter-pack-[0-9].*\\.jar$", "legacy_globs": ["starter-pack-[0-9]*.jar"]},
+    {"name": "Super Trash", "repo": "carmelosantana/minecraft-super-trash", "destination": "super-trash.jar", "asset_regex": "^super-trash-[0-9].*\\.jar$", "legacy_globs": ["super-trash-[0-9]*.jar"]},
     {"name": "Timber Blast", "repo": "carmelosantana/minecraft-timber-blast", "destination": "timber-blast.jar", "asset_regex": "^timber-blast-[0-9].*\\.jar$", "legacy_globs": ["timber-blast-[0-9]*.jar"]},
     {"name": "Umami", "repo": "carmelosantana/minecraft-umami", "destination": "umami.jar", "asset_regex": "^umami-[0-9].*\\.jar$", "legacy_globs": ["umami-[0-9]*.jar"]},
     {"name": "Wild Weather Update", "repo": "carmelosantana/minecraft-wild-weather-update", "destination": "wild-weather-update.jar", "asset_regex": "^wild-weather-update-[0-9].*\\.jar$", "legacy_globs": ["wild-weather-update-[0-9]*.jar"]},
