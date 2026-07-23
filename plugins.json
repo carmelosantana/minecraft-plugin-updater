@@ -14,6 +14,7 @@
     {"name": "Timber Blast", "repo": "carmelosantana/minecraft-timber-blast", "destination": "timber-blast.jar", "asset_regex": "^timber-blast-[0-9].*\\.jar$", "legacy_globs": ["timber-blast-[0-9]*.jar"]},
     {"name": "Umami", "repo": "carmelosantana/minecraft-umami", "destination": "umami.jar", "asset_regex": "^umami-[0-9].*\\.jar$", "legacy_globs": ["umami-[0-9]*.jar"]},
     {"name": "Wild Weather Update", "repo": "carmelosantana/minecraft-wild-weather-update", "destination": "wild-weather-update.jar", "asset_regex": "^wild-weather-update-[0-9].*\\.jar$", "legacy_globs": ["wild-weather-update-[0-9]*.jar"]},
-    {"name": "WorldCRUD", "repo": "carmelosantana/minecraft-worldcrud", "destination": "worldcrud.jar", "asset_regex": "^worldcrud-[0-9].*\\.jar$", "legacy_globs": ["worldcrud-[0-9]*.jar"]}
+    {"name": "WorldCRUD", "repo": "carmelosantana/minecraft-worldcrud", "destination": "worldcrud.jar", "asset_regex": "^worldcrud-[0-9].*\\.jar$", "legacy_globs": ["worldcrud-[0-9]*.jar"]},
+    {"name": "Pizza", "repo": "carmelosantana/minecraft-pizza", "destination": "pizza.jar", "asset_regex": "^pizza-[0-9].*\\.jar$", "legacy_globs": ["pizza-[0-9]*.jar"]}
   ]
 }
